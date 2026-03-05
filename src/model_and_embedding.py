@@ -21,8 +21,10 @@ def get_embedding_function():
         model = OLLAMA_EMBEDDING_NAME,
         embed_instruction = "文档：",
         query_instruction = "询问：",
+        # bge-m3在处理“知识库里的文字”和“用户问的问题”时
+        # 加上这两个前缀，它能更精准地把“问题”和“知识”匹配在一起
     )
-    """bge-m3在处理“知识库里的文字”和“用户问的问题”时
-    加上这两个前缀，它能更精准地把“问题”和“知识”匹配在一起"""
 
+# 如果你以后想换成其他提供商，
+# 只需要修改 EMBEDDING_PROVIDER 和 EMBEDDING_NAME
 EMBEDDING_NAME = OLLAMA_EMBEDDING_NAME

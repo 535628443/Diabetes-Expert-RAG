@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "chromadb>=1.5.2",
+    "cryptography>=46.0.5",
     "jieba>=0.42.1",
     "langchain>=1.2.10",
     "langchain-community>=0.4.1",

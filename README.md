@@ -21,7 +21,7 @@
 ## 📂 项目结构
 
 ```text
-RAG_Proj/
+Diabetes-Expert-RAG/
 ├── data/               # 数据存储
 │   ├── documents/      # 原始医学指南 (PDF)
 │   └── chroma_bge-m3/  # 持久化向量数据库
@@ -32,6 +32,7 @@ RAG_Proj/
 │   └── ui.py                   # Streamlit Web 界面
 ├── Dockerfile          # 容器化配置文件
 ├── pyproject.toml      # 项目元数据与依赖 (uv 格式)
+├── .python-version     # 指定 Python 版本 (3.11)
 └── requirements.txt    # 通用依赖清单 (pip 兼容)
 ```
 
@@ -44,19 +45,20 @@ ollama pull deepseek-r1:1.5b
 ollama pull bge-m3
 ```
 
-### 2. 初始化项目
-使用 `uv` 自动同步依赖：
+### 2. 初始化项目 & 同步依赖
+使用 `uv` 自动创建 3.11 环境并同步依赖：
 ```bash
 uv sync
 ```
 
 ### 3. 构建知识库 (首次运行)
-将 PDF 指南放入 `data/documents/`，然后运行：
+将 PDF 指南放入 `data/documents/`，然后执行（推荐使用 uv run）：
 ```bash
 uv run src/update_database.py
 ```
 
 ### 4. 启动 Web 界面
+使用 `uv run` 直接运行，无需手动激活虚拟环境：
 ```bash
 uv run streamlit run src/ui.py
 ```
